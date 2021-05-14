@@ -29,6 +29,10 @@ fastify.register(require('fastify-bugsnag'), {
 fastify.get('/', async (request, reply) => {
     fastify.bugsnag.leaveBreadcrumb('Visited homepage'); // OR request.bugsnag.leaveBreadcrumb();
 });
+
+fastify.get('/error', async (request, reply) => {
+    request.bugsnag.notify(new Error('This is a generic error'));
+});
 ```
 
 ## Description
