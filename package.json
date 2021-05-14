@@ -19,7 +19,7 @@
     "fastify bugsnag plugin",
     "fastify error reporting"
   ],
-  "author": "Žiga Strgar",
+  "author": "Žiga Strgar <ziga.strgar@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/ZigaStrgar/fastify-bugsnag/issues"
