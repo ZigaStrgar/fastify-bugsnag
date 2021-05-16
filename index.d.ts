@@ -1,10 +1,13 @@
-import {FastifyRegister} from 'fastify';
+import {FastifyPlugin, FastifyPluginOptions} from 'fastify';
 import {Client, Config} from '@bugsnag/js';
 import {Event, Logger} from "@bugsnag/core";
 
-
 declare module 'fastify' {
     interface FastifyInstance {
+        bugsnag: Client;
+    }
+
+    interface FastifyRequest {
         bugsnag: Client;
     }
 }
@@ -20,12 +23,11 @@ interface BugsnagNodeConfig extends Config {
     sendCode?: boolean
 }
 
-export interface PluginOptions {
+interface PluginOptions extends FastifyPluginOptions {
     apiKey?: String;
-    bugsnagOptions: BugsnagNodeConfig,
+    bugsnagOptions?: BugsnagNodeConfig,
     enableReporting?: Boolean;
 }
 
-declare const fastifyBugsnag: FastifyRegister<PluginOptions>;
-
+declare const fastifyBugsnag: FastifyPlugin<PluginOptions>;
 export default fastifyBugsnag;

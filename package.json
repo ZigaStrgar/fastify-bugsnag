@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "standard --verbose | snazzy",
     "lint:fix": "standard --fix",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "tap --coverage"
   },
   "repository": {
     "type": "git",
@@ -36,7 +36,8 @@
     "@types/node": "^15.3.0",
     "fastify": "^3.15.1",
     "snazzy": "^9.0.0",
-    "standard": "^16.0.3"
+    "standard": "^16.0.3",
+    "tap": "^15.0.9"
   },
   "standard": {
     "ignore": [
