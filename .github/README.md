@@ -19,19 +19,19 @@ yarn add fastify-bugsnag
 const fastify = require('fastify')();
 
 fastify.register(require('fastify-bugsnag'), {
-    apiKey: 'Your-Bugsnag-API-Key', // Defaults to process.env.BUGSNAG_API_KEY
-    enableReporting: process.env.NODE_ENV === 'production', // OR similar
-    bugsnagOptions: {
-        appType: 'web',
-    }
+  apiKey: 'Your-Bugsnag-API-Key', // Defaults to process.env.BUGSNAG_API_KEY
+  enableReporting: process.env.NODE_ENV === 'production', // OR similar
+  bugsnagOptions: {
+    appType: 'web',
+  }
 });
 
 fastify.get('/', async (request, reply) => {
-    fastify.bugsnag.leaveBreadcrumb('Visited homepage'); // OR request.bugsnag.leaveBreadcrumb();
+  fastify.bugsnag.leaveBreadcrumb('Visited homepage'); // OR request.bugsnag.leaveBreadcrumb();
 });
 
 fastify.get('/error', async (request, reply) => {
-    request.bugsnag.notify(new Error('This is a generic error'));
+  request.bugsnag.notify(new Error('This is a generic error'));
 });
 ```
 
@@ -39,6 +39,10 @@ fastify.get('/error', async (request, reply) => {
 
 The plugin will decorate fastify instance with `bugsnag` property and `request` as well. The value behind `bugsnag`, is
 a full BugsnagClient. [Bugsnag documentation](https://docs.bugsnag.com/platforms/javascript/)
+
+Be aware that the plugin mimics the behaviour of
+offical [Bugsnag Express](https://github.com/bugsnag/bugsnag-js/tree/next/packages/plugin-express) plugin with appending
+the request data to the error. That includes `body`, `query` and `params` which may include user data!
 
 ## Options
 
