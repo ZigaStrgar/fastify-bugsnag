@@ -42,7 +42,7 @@ test('Throw an error in handler and add request details to the error', async t =
   const fastify = Fastify()
   fastify.register(mockedPlugin, {
     apiKey,
-    enableReporting: true,
+    enableReporting: true
   })
 
   fastify.get('/error', () => {
