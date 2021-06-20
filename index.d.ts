@@ -24,7 +24,7 @@ interface BugsnagNodeConfig extends Config {
 }
 
 interface PluginOptions extends FastifyPluginOptions {
-    apiKey?: String;
+    key?: String;
     bugsnagOptions?: BugsnagNodeConfig,
     enableReporting?: Boolean;
 }

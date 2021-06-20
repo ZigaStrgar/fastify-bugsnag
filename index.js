@@ -32,7 +32,7 @@ function obtainRequestAndMetadataInfo (request) {
 
 function bugsnagPlugin (fastify, options, done) {
   Bugsnag.start({
-    apiKey: options.apiKey ? options.apiKey : process.env.BUGSNAG_API_KEY,
+    apiKey: options.key ? options.key : process.env.BUGSNAG_API_KEY,
     ...(options.bugsnagOptions || {})
   })
 

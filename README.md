@@ -19,7 +19,7 @@ yarn add fastify-bugsnag
 const fastify = require('fastify')();
 
 fastify.register(require('fastify-bugsnag'), {
-  apiKey: 'Your-Bugsnag-API-Key', // Defaults to process.env.BUGSNAG_API_KEY
+  key: 'Your-Bugsnag-API-Key', // Defaults to process.env.BUGSNAG_API_KEY
   enableReporting: process.env.NODE_ENV === 'production', // OR similar
   bugsnagOptions: {
     appType: 'web',
@@ -41,15 +41,15 @@ The plugin will decorate fastify instance with `bugsnag` property and `request` 
 a full BugsnagClient. [Bugsnag documentation](https://docs.bugsnag.com/platforms/javascript/)
 
 Be aware that the plugin mimics the behaviour of
-offical [Bugsnag Express](https://github.com/bugsnag/bugsnag-js/tree/next/packages/plugin-express) plugin with appending
+official [Bugsnag Express](https://github.com/bugsnag/bugsnag-js/tree/next/packages/plugin-express) plugin with appending
 the request data to the error. That includes `body`, `query` and `params` which may include user data!
 
 ## Options
 
 | Parameter | Default Value | Description |
 | --------- | ------------- | ----------- |
-| `apiKey`  | `process.env.BUGSNAG_API_KEY` | API Key obtained from Bugsnag dashboard project. **REQUIRED** |
-| `enableReporting` | `undefined` | Set to `true` on environemnts or under conditions you want to report the errors to Bugsnag. |
+| `key`  | `process.env.BUGSNAG_API_KEY` | API Key obtained from Bugsnag dashboard project. **REQUIRED** |
+| `enableReporting` | `undefined` | Set to `true` on environments or under conditions you want to report the errors to Bugsnag. |
 | `bugsnagOptions` | `{}` | [Additional configuration options](https://docs.bugsnag.com/platforms/javascript/configuration-options/) for Bugsnag Client. |
 
 ## License
