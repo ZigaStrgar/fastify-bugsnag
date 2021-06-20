@@ -4,14 +4,14 @@ const Fastify = require('fastify')
 const { test, mock } = require('tap')
 const plugin = require('../index')
 
-const key = '00000000000000000000000000000000'
+const apiKey = '00000000000000000000000000000000'
 
 test('Plugin decorates the instance and request', t => {
   t.plan(4)
 
   const fastify = Fastify()
   fastify.register(plugin, {
-    key
+    apiKey
   })
 
   fastify.ready(err => {
@@ -41,7 +41,7 @@ test('Throw an error in handler and add request details to the error', async t =
 
   const fastify = Fastify()
   fastify.register(mockedPlugin, {
-    key,
+    apiKey,
     enableReporting: true
   })
 

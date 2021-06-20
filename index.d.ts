@@ -1,4 +1,4 @@
-import {FastifyPluginCallback, FastifyPluginOptions} from 'fastify';
+import {FastifyPluginCallback} from 'fastify';
 import {Client, Config} from '@bugsnag/js';
 import {Event, Logger} from "@bugsnag/core";
 
@@ -23,10 +23,8 @@ interface BugsnagNodeConfig extends Config {
     sendCode?: boolean
 }
 
-interface PluginOptions extends FastifyPluginOptions {
-    key?: String;
-    bugsnagOptions?: BugsnagNodeConfig,
-    enableReporting?: Boolean;
+interface PluginOptions extends BugsnagNodeConfig {
+    enableReporting?: boolean;
 }
 
 declare const fastifyBugsnag: FastifyPluginCallback<PluginOptions>;
