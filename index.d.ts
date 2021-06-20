@@ -1,4 +1,4 @@
-import {FastifyPlugin, FastifyPluginOptions} from 'fastify';
+import {FastifyPluginCallback, FastifyPluginOptions} from 'fastify';
 import {Client, Config} from '@bugsnag/js';
 import {Event, Logger} from "@bugsnag/core";
 
@@ -29,5 +29,5 @@ interface PluginOptions extends FastifyPluginOptions {
     enableReporting?: Boolean;
 }
 
-declare const fastifyBugsnag: FastifyPlugin<PluginOptions>;
+declare const fastifyBugsnag: FastifyPluginCallback<PluginOptions>;
 export default fastifyBugsnag;
