@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc -p ./tsconfig.json",
     "lint": "ts-standard --verbose | snazzy",
-    "lint:fix": "ts-standard --fix",
+    "lint:fix": "ts-standard --fix | snazzy",
     "postversion": "git push --tags && git push origin main && echo \"Successfully published new package version $npm_package_version\"",
     "preversion": "npm run lint && npm run test",
     "test": "tap --coverage"

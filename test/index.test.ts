@@ -6,7 +6,8 @@ import { Event } from '@bugsnag/js'
 
 const apiKey = '00000000000000000000000000000000'
 
-await test('Plugin decorates the instance and request', async t => {
+// eslint-disable-next-line @typescript-eslint/no-floating-promises
+test('Plugin decorates the instance and request', async t => {
   t.plan(4)
 
   const fastify = Fastify()
@@ -24,7 +25,8 @@ await test('Plugin decorates the instance and request', async t => {
   })
 })
 
-await test('Throw an error in handler and add request details to the error', async t => {
+// eslint-disable-next-line @typescript-eslint/no-floating-promises
+test('Throw an error in handler and add request details to the error', async t => {
   t.plan(1)
 
   const errors: Event[] = []
