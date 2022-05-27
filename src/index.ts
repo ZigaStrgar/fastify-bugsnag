@@ -45,7 +45,7 @@ function bugsnagPlugin (fastify: FastifyInstance, options: PluginOptions, done: 
     next()
   })
 
-  fastify.addHook('onError', function bugsnagErrorHandlerPlugin (request: FastifyRequest, reply: FastifyReply, error, next) {
+  fastify.addHook('onError', async function bugsnagErrorHandlerPlugin (request: FastifyRequest, reply: FastifyReply, error) {
     if (options.enableReporting !== undefined && options.enableReporting) {
       this.bugsnag.notify(error, event => {
         const { metadata, request: requestData } = obtainRequestAndMetadataInfo(request)
@@ -54,8 +54,6 @@ function bugsnagPlugin (fastify: FastifyInstance, options: PluginOptions, done: 
         event.addMetadata('request', metadata)
       })
     }
-
-    next()
   })
 
   done()
