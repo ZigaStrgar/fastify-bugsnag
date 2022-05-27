@@ -2,12 +2,15 @@
   "name": "fastify-bugsnag",
   "version": "0.3.1",
   "description": "Fastify plugin for Bugsnag",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "lint": "standard --verbose | snazzy",
-    "lint:fix": "standard --fix",
+    "build": "tsc -p ./tsconfig.json",
+    "lint": "ts-standard --verbose | snazzy",
+    "lint:fix": "ts-standard --fix | snazzy",
+    "prepublish": "npm run build",
     "postversion": "git push --tags && git push origin main && echo \"Successfully published new package version $npm_package_version\"",
-    "preversion": "npm run lint && npm run test",
+    "preversion": "npm run lint && npm run test && npm run build",
     "test": "tap --coverage"
   },
   "repository": {
@@ -28,22 +31,30 @@
   },
   "homepage": "https://github.com/ZigaStrgar/fastify-bugsnag#readme",
   "dependencies": {
-    "@bugsnag/js": "^7.9.2",
+    "@bugsnag/js": "^7.16.5",
     "fastify-plugin": "^3.0.0"
   },
   "engines": {
-    "node": ">=12.0.0"
+    "node": "^14.19.2||>=15.0.0"
   },
   "devDependencies": {
-    "@types/node": "^17.0.33",
+    "@tsconfig/node14": "^1.0.1",
+    "@types/node": "^17.0.35",
+    "@types/tap": "^15.0.7",
     "fastify": "^3.15.1",
     "snazzy": "^9.0.0",
-    "standard": "^17.0.0",
-    "tap": "^16.2.0"
+    "tap": "^16.2.0",
+    "ts-node": "^10.8.0",
+    "ts-standard": "^11.0.0",
+    "typescript": "~4.4.4"
   },
-  "standard": {
+  "ts-standard": {
     "ignore": [
-      "index.d.ts"
+      "dist"
+    ],
+    "files": [
+      "src/**/*.ts",
+      "test/**/*.ts"
     ]
   }
 }

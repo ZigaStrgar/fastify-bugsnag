@@ -1,4 +1,7 @@
-lines: 50
 branches: 50
-functions: 50
-statements: 50
+browser: false
+coverage-report: [ 'text', 'html', 'text-lcov' ]
+lines: 90
+functions: 90
+statements: 90
+ts: true

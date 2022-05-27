@@ -1,10 +1,13 @@
-const Bugsnag = require('@bugsnag/js')
-const fp = require('fastify-plugin')
+import Bugsnag from '@bugsnag/js'
+import { FastifyInstance, FastifyReply, FastifyRequest } from 'fastify'
+import fp from 'fastify-plugin'
 
-function extractRequestMetadata (request) {
+import { PluginOptions, RequestInfoWithMetadata, RequestMetadata } from './types'
+
+function extractRequestMetadata (request: FastifyRequest): RequestMetadata {
   return {
     body: request.body,
-    clientIp: request.ips && request.ips[0] ? request.ips[0] : request.ip,
+    clientIp: request?.ips?.[0] ?? request.ip,
     headers: request.raw.headers,
     httpMethod: request.routerMethod,
     params: request.params,
@@ -15,7 +18,7 @@ function extractRequestMetadata (request) {
   }
 }
 
-function obtainRequestAndMetadataInfo (request) {
+function obtainRequestAndMetadataInfo (request: FastifyRequest): RequestInfoWithMetadata {
   const metadata = extractRequestMetadata(request)
 
   return {
@@ -30,20 +33,20 @@ function obtainRequestAndMetadataInfo (request) {
   }
 }
 
-function bugsnagPlugin (fastify, options, done) {
+function bugsnagPlugin (fastify: FastifyInstance, options: PluginOptions, done: (error?: Error) => void): void {
   Bugsnag.start(options)
 
   fastify.decorate('bugsnag', Bugsnag)
   fastify.decorateRequest('bugsnag', null)
 
-  fastify.addHook('onRequest', function decorateRequestInstance (request, reply, next) {
+  fastify.addHook('onRequest', function decorateRequestInstance (request: FastifyRequest, reply: FastifyReply, next) {
     request.bugsnag = Bugsnag
 
     next()
   })
 
-  fastify.addHook('onError', function bugsnagErrorHandlerPlugin (request, reply, error, next) {
-    if (options.enableReporting) {
+  fastify.addHook('onError', async function bugsnagErrorHandlerPlugin (request: FastifyRequest, reply: FastifyReply, error) {
+    if (options.enableReporting !== undefined && options.enableReporting) {
       this.bugsnag.notify(error, event => {
         const { metadata, request: requestData } = obtainRequestAndMetadataInfo(request)
         event.request = requestData
@@ -51,14 +54,12 @@ function bugsnagPlugin (fastify, options, done) {
         event.addMetadata('request', metadata)
       })
     }
-
-    next()
   })
 
   done()
 }
 
-module.exports = fp(bugsnagPlugin, {
+export default fp(bugsnagPlugin, {
   name: 'fastify-bugsnag',
   fastify: '>=3.x'
 })

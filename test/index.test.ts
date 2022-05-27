@@ -1,15 +1,18 @@
-'use strict'
+import Fastify from 'fastify'
+import { test, mock } from 'tap'
 
-const Fastify = require('fastify')
-const { test, mock } = require('tap')
-const plugin = require('../index')
+import plugin from '../src/index'
+import { Event } from '@bugsnag/js'
 
 const apiKey = '00000000000000000000000000000000'
 
+// eslint-disable-next-line @typescript-eslint/no-floating-promises
 test('Plugin decorates the instance and request', t => {
   t.plan(4)
 
   const fastify = Fastify()
+
+  // eslint-disable-next-line @typescript-eslint/no-floating-promises
   fastify.register(plugin, {
     apiKey
   })
@@ -24,15 +27,17 @@ test('Plugin decorates the instance and request', t => {
   })
 })
 
+// eslint-disable-next-line @typescript-eslint/no-floating-promises
 test('Throw an error in handler and add request details to the error', async t => {
   t.plan(1)
 
-  const errors = []
+  const errors: Event[] = []
 
-  const mockedPlugin = mock('../index', {
+  const mockedPlugin = mock('../src/index', {
     '@bugsnag/js': {
-      start: () => {},
-      notify: (error, event) => {
+      start: () => {
+      },
+      notify: (error: Event, event: Function) => {
         errors.push(error)
         event(error)
       }
@@ -40,7 +45,7 @@ test('Throw an error in handler and add request details to the error', async t =
   })
 
   const fastify = Fastify()
-  fastify.register(mockedPlugin, {
+  await fastify.register(mockedPlugin, {
     apiKey,
     enableReporting: true
   })
