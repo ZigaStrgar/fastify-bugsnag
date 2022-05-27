@@ -48,10 +48,10 @@ the request data to the error. That includes `body`, `query` and `params` which 
 
 ## Options
 
-| Parameter         | Default Value | Description |
-|-------------------| ------------- | ----------- |
-| `apiKey`          | `process.env.BUGSNAG_API_KEY` | API Key obtained from Bugsnag dashboard project. **REQUIRED** |
-| `enableReporting` | `undefined` | Set to `true` on environments or under conditions you want to report the errors to Bugsnag. |
+| Parameter         | Default Value                 | Description                                                                                 |
+|-------------------|-------------------------------|---------------------------------------------------------------------------------------------|
+| `apiKey`          | `process.env.BUGSNAG_API_KEY` | API Key obtained from Bugsnag dashboard project. **REQUIRED**                               |
+| `enableReporting` | `undefined`                   | Set to `true` on environments or under conditions you want to report the errors to Bugsnag. |
 
 For additional options check [here](https://docs.bugsnag.com/platforms/javascript/configuration-options/).
 
