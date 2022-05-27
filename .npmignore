@@ -536,6 +536,9 @@ Temporary Items
 .apdisk
 
 # Project files
+coverage/
+.idea/
+.nyc_output/
 .github/
 test/
 tsconfig.json
