@@ -35,4 +35,4 @@ template: |
   
   ---
 footer: |
-  [Detailed comparison]($REPOSITORY/compare/$PREVIOUS_TAG...$RESOLVED_VERSION) between [$PREVIOUS_TAG]($REPOSITORY/releases/tag/$PREVIOUS_TAG) and [$RESOLVED_VERSION]($REPOSITORY/releases/tag/$RESOLVED_VERSION).
+  [Detailed comparison](https://github.com/ZigaStrgar/fastify-bugsnag/compare/$PREVIOUS_TAG...$RESOLVED_VERSION) between [$PREVIOUS_TAG](https://github.com/ZigaStrgar/fastify-bugsnag/releases/tag/$PREVIOUS_TAG) and [$RESOLVED_VERSION](https://github.com/ZigaStrgar/fastify-bugsnag/releases/tag/$RESOLVED_VERSION).
