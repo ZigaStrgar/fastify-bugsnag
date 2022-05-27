@@ -2,13 +2,15 @@
   "name": "fastify-bugsnag",
   "version": "0.3.1",
   "description": "Fastify plugin for Bugsnag",
-  "main": "src/index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc -p ./tsconfig.json",
     "lint": "ts-standard --verbose | snazzy",
     "lint:fix": "ts-standard --fix | snazzy",
+    "prepublish": "npm run build",
     "postversion": "git push --tags && git push origin main && echo \"Successfully published new package version $npm_package_version\"",
-    "preversion": "npm run lint && npm run test",
+    "preversion": "npm run lint && npm run test && npm run build",
     "test": "tap --coverage"
   },
   "repository": {
