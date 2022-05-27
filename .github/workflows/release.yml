@@ -1,9 +1,9 @@
 name: Release Drafter
 
 on:
-  pull_request:
-    # Only following types are handled by the action, but one can default to all as well
-    types: [ opened, reopened, synchronize ]
+  push:
+    branches:
+      - main
 
 jobs:
   update_release_draft:
