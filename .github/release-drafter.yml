@@ -29,8 +29,10 @@ version-resolver:
       - 'patch'
   default: patch
 template: |
-  ## Changes - 
+  ## Changes 
 
   $CHANGES
+  
+  ---
 footer: |
   [Detailed comparison]($REPOSITORY/compare/$PREVIOUS_TAG...$RESOLVED_VERSION) between [$PREVIOUS_TAG]($REPOSITORY/releases/tag/$PREVIOUS_TAG) and [$RESOLVED_VERSION]($REPOSITORY/releases/tag/$RESOLVED_VERSION).
