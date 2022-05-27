@@ -1,8 +1,7 @@
 {
   "extends": "@tsconfig/node14",
   "compilerOptions": {
-    "rootDir": "./src",
-    "outDir": "./dist",
+    "rootDir": "./",
     "target": "es2018",
     "module": "commonjs",
     "declaration": true,
@@ -18,8 +17,7 @@
     ]
   },
   "include": [
-    "./src/**/*.ts",
-    "./test/**/*.ts",
+    "./**/*.ts"
   ],
   "exclude": [
     "node_modules"
