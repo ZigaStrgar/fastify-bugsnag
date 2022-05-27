@@ -7,11 +7,13 @@ import { Event } from '@bugsnag/js'
 const apiKey = '00000000000000000000000000000000'
 
 // eslint-disable-next-line @typescript-eslint/no-floating-promises
-test('Plugin decorates the instance and request', async t => {
+test('Plugin decorates the instance and request', t => {
   t.plan(4)
 
   const fastify = Fastify()
-  await fastify.register(plugin, {
+
+  // eslint-disable-next-line @typescript-eslint/no-floating-promises
+  fastify.register(plugin, {
     apiKey
   })
 
