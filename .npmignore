@@ -547,3 +547,5 @@ tsconfig.eslint.json
 .gitignore
 src/
 .npmignore
+CODE_OF_CONDUCT.md
+CONTRIBUTING.md
