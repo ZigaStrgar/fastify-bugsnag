@@ -88,4 +88,4 @@ For additional options check the official documentation of Bugsnag
 
 ## License
 
-Licensed under MIT.
+Licensed under [MIT](./LICENSE).
