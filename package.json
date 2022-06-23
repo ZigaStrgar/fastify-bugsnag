@@ -31,7 +31,7 @@
   },
   "homepage": "https://github.com/ZigaStrgar/fastify-bugsnag#readme",
   "dependencies": {
-    "@bugsnag/js": "^7.16.5",
+    "@bugsnag/js": "^7.16.7",
     "fastify-plugin": "^3.0.0"
   },
   "engines": {
