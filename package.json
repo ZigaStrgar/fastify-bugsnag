@@ -18,11 +18,15 @@
     "url": "git+https://github.com/ZigaStrgar/fastify-bugsnag.git"
   },
   "keywords": [
-    "fastify",
-    "fastify plugin",
-    "fastify bugsnag",
-    "fastify bugsnag plugin",
-    "fastify error reporting"
+    "bugsnag",
+    "crash-logging",
+    "errors",
+    "error-logging",
+    "error-reporting",
+    "fastify-bugsnag",
+    "fastify-bugsnag-plugin",
+    "fastify-error-reporting",
+    "fastify-plugin"
   ],
   "author": "Žiga Strgar <ziga.strgar@gmail.com>",
   "license": "MIT",
