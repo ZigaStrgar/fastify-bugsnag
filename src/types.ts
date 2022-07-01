@@ -2,7 +2,7 @@ import { Client, BrowserConfig } from '@bugsnag/js'
 import { NodeConfig } from '@bugsnag/node'
 import { FastifyRequest } from 'fastify'
 
-export type PluginOptions = NodeConfig | BrowserConfig;
+export type PluginOptions = NodeConfig | BrowserConfig
 
 export interface RequestMetadata {
   body?: FastifyRequest['body']
