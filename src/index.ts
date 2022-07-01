@@ -46,14 +46,12 @@ function bugsnagPlugin (fastify: FastifyInstance, options: PluginOptions, done: 
   })
 
   fastify.addHook('onError', async function bugsnagErrorHandlerPlugin (request: FastifyRequest, reply: FastifyReply, error) {
-    if (options.enableReporting !== undefined && options.enableReporting) {
-      this.bugsnag.notify(error, event => {
-        const { metadata, request: requestData } = obtainRequestAndMetadataInfo(request)
-        event.request = requestData
+    this.bugsnag.notify(error, event => {
+      const { metadata, request: requestData } = obtainRequestAndMetadataInfo(request)
+      event.request = requestData
 
-        event.addMetadata('request', metadata)
-      })
-    }
+      event.addMetadata('request', metadata)
+    })
   })
 
   done()
@@ -61,5 +59,5 @@ function bugsnagPlugin (fastify: FastifyInstance, options: PluginOptions, done: 
 
 export default fp(bugsnagPlugin, {
   name: 'fastify-bugsnag',
-  fastify: '>=3.x'
+  fastify: '^3.x'
 })

@@ -1,21 +1,8 @@
-import { Event, Logger } from '@bugsnag/core'
-import { Client, Config } from '@bugsnag/js'
+import { Client, BrowserConfig } from '@bugsnag/js'
+import { NodeConfig } from '@bugsnag/node'
 import { FastifyRequest } from 'fastify'
 
-type AfterErrorCb = (err: any, event: Event, logger: Logger) => void
-
-interface BugsnagNodeConfig extends Config {
-  hostname?: string
-  onUncaughtException?: AfterErrorCb
-  onUnhandledRejection?: AfterErrorCb
-  agent?: any
-  projectRoot?: string
-  sendCode?: boolean
-}
-
-export interface PluginOptions extends BugsnagNodeConfig {
-  enableReporting?: boolean
-}
+export type PluginOptions = NodeConfig | BrowserConfig;
 
 export interface RequestMetadata {
   body?: FastifyRequest['body']
