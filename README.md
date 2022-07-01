@@ -25,10 +25,11 @@ the request data to the error. That includes `body`, `query` and `params` which 
 
 ## Compatibility
 
-|         | Version   |
-|---------|-----------|
-| fastify | `>=3.x`   |
-| Bugsnag | `^7.16.5` |
+|         | Version     |
+|---------|-------------|
+| Fastify | `^3.x`      |
+| Bugsnag | `^7.17.0`   |
+| Node    | `>=14.19.2` |
 
 ## Installation
 
@@ -49,7 +50,6 @@ const fastify = require('fastify')();
 
 fastify.register(require('fastify-bugsnag'), {
   apiKey: 'Your-Bugsnag-API-Key', // Defaults to process.env.BUGSNAG_API_KEY
-  enableReporting: process.env.NODE_ENV === 'production', // OR similar
   // Rest of Bugsnag Configuration Options
 });
 
@@ -60,7 +60,6 @@ import fastifyBugsnag from 'fastify-bugsnag';
 
 fastify.register(fastifyBugsnag, {
   apiKey: 'Your-Bugsnag-API-Key', // Defaults to process.env.BUGSNAG_API_KEY
-  enableReporting: process.env.NODE_ENV === 'production', // OR similar
   // Rest of Bugsnag Configuration Options
 });
 ```
@@ -78,10 +77,9 @@ fastify.get('/error', async (request, reply) => {
 
 ## Options
 
-| Parameter         | Default Value                 | Description                                                                                 |
-|-------------------|-------------------------------|---------------------------------------------------------------------------------------------|
-| `apiKey`          | `process.env.BUGSNAG_API_KEY` | API Key obtained from Bugsnag dashboard project. **REQUIRED**                               |
-| `enableReporting` | `undefined`                   | Set to `true` on environments or under conditions you want to report the errors to Bugsnag. |
+| Parameter | Default Value                 | Description                                                   |
+|-----------|-------------------------------|---------------------------------------------------------------|
+| `apiKey`  | `process.env.BUGSNAG_API_KEY` | API Key obtained from Bugsnag dashboard project. **REQUIRED** |
 
 For additional options check the official documentation of Bugsnag
 [here](https://docs.bugsnag.com/platforms/javascript/configuration-options/).
