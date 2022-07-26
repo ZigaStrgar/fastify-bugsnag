@@ -37,7 +37,7 @@
   "dependencies": {
     "@bugsnag/js": "^7.17.0",
     "@bugsnag/node": "^7.17.0",
-    "fastify-plugin": "^3.0.0"
+    "fastify-plugin": "^4.0.0"
   },
   "engines": {
     "node": "^14.19.2||>=15.0.0"
@@ -46,7 +46,7 @@
     "@tsconfig/node14": "^1.0.1",
     "@types/node": "^18.0.0",
     "@types/tap": "^15.0.7",
-    "fastify": "^3.29.1",
+    "fastify": "^4.3.0",
     "snazzy": "^9.0.0",
     "tap": "^16.2.0",
     "ts-node": "^10.8.0",
