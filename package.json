@@ -40,7 +40,7 @@
     "fastify-plugin": "^4.0.0"
   },
   "engines": {
-    "node": "^14.19.2||>=15.0.0"
+    "node": "^14.21.1||^16.18.1||>=18.12.1"
   },
   "devDependencies": {
     "@tsconfig/node14": "^1.0.1",
