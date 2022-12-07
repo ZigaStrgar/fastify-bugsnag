@@ -1,8 +1,8 @@
+import { Event } from '@bugsnag/js'
 import Fastify from 'fastify'
 import { test, mock } from 'tap'
 
 import plugin from '../src/index'
-import { Event } from '@bugsnag/js'
 
 const apiKey = '00000000000000000000000000000000'
 

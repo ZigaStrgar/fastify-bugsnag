@@ -11,7 +11,7 @@
     "prepublish": "npm run build",
     "postversion": "git push --tags && git push origin main && echo \"Successfully published new package version $npm_package_version\"",
     "preversion": "npm run lint && npm run test && npm run build",
-    "test": "tap --coverage"
+    "test": "tap test/*.test.ts --coverage"
   },
   "repository": {
     "type": "git",
