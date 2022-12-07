@@ -549,3 +549,5 @@ src/
 .npmignore
 CODE_OF_CONDUCT.md
 CONTRIBUTING.md
+package-lock.json
+yarn.lock
