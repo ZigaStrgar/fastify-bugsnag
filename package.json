@@ -17,6 +17,9 @@
     "type": "git",
     "url": "git+https://github.com/ZigaStrgar/fastify-bugsnag.git"
   },
+  "files": [
+    "dist"
+  ],
   "keywords": [
     "bugsnag",
     "crash-logging",
