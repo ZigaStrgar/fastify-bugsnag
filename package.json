@@ -38,12 +38,13 @@
   },
   "homepage": "https://github.com/ZigaStrgar/fastify-bugsnag#readme",
   "dependencies": {
+    "18": "^0.0.0",
     "@bugsnag/js": "^7.17.0",
     "@bugsnag/node": "^7.17.0",
     "fastify-plugin": "^4.0.0"
   },
   "engines": {
-    "node": "^14.21.1||^16.18.1||^18.12.1||>=20.0.0"
+    "node": "^16.18.1||^18.12.1||>=20.0.0"
   },
   "devDependencies": {
     "@tsconfig/node14": "^1.0.1",
