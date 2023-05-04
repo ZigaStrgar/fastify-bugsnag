@@ -1,18 +1,18 @@
 {
-  "extends": "@tsconfig/node14",
+  "extends": "@tsconfig/node16",
   "compilerOptions": {
-    "rootDir": "./src",
-    "outDir": "./dist",
     "declaration": true,
     "resolveJsonModule": true,
     "removeComments": true,
     "sourceMap": true,
+    "noEmit": true,
     "types": [
       "node"
     ]
   },
   "include": [
-    "./src/**/*.ts"
+    "./src/**/*.ts",
+    "./test/**/*.ts"
   ],
   "exclude": [
     "dist",

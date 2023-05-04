@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc -p ./tsconfig.json",
+    "build": "tsc -p ./tsconfig.build.json",
     "lint": "ts-standard --verbose | snazzy",
     "lint:fix": "ts-standard --fix | snazzy",
     "prepublish": "npm run build",
@@ -46,7 +46,7 @@
     "node": "^16.18.1||^18.12.1||>=20.0.0"
   },
   "devDependencies": {
-    "@tsconfig/node14": "^1.0.1",
+    "@tsconfig/node16": "^1.0.3",
     "@types/node": "^18.16.3",
     "@types/tap": "^15.0.7",
     "fastify": "^4.17.0",
