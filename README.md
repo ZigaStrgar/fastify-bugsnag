@@ -26,13 +26,11 @@ the request data to the error. That includes `body`, `query` and `params` which 
 
 ## Compatibility
 
-|         | Version                                                            |
-|---------|--------------------------------------------------------------------|
-| Fastify | `^4.x`                                                             |
-| Bugsnag | `^7.17.0`                                                          |
-| Node    | <code>^14.19.2 &#124;&#124; ^16.18.1 &#124;&#124; >=18.12.1</code> |
-
-For Fastify V3 please check the version `v0.5.x`.
+|         | Version                                                           |
+|---------|-------------------------------------------------------------------|
+| Fastify | `^4.x`                                                            |
+| Bugsnag | `^7.17.0`                                                         |
+| Node    | <code>^16.18.1 &#124;&#124; ^18.12.1 &#124;&#124; >=20.0.0</code> |
 
 ## Installation
 
