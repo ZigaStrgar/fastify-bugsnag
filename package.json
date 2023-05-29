@@ -47,7 +47,7 @@
   },
   "devDependencies": {
     "@tsconfig/node16": "^1.0.3",
-    "@types/node": "^18.16.3",
+    "@types/node": "^20.2.5",
     "@types/tap": "^15.0.7",
     "fastify": "^4.17.0",
     "snazzy": "^9.0.0",
