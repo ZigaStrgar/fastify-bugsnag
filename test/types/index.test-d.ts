@@ -2,7 +2,7 @@ import { Client } from '@bugsnag/js'
 import fastify from 'fastify'
 import { expectType } from 'tsd'
 
-import plugin from '../../src/index'
+import plugin from '../../src'
 
 const app = fastify()
 
