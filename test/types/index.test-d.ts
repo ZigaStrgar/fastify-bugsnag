@@ -12,5 +12,5 @@ app.register(plugin).ready()
 expectType<Client>(app.bugsnag)
 
 app.get('/', request => {
-    expectType<Client>(request.bugsnag)
+  expectType<Client>(request.bugsnag)
 })
