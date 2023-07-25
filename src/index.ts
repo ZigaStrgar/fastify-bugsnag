@@ -2,7 +2,7 @@ import Bugsnag from '@bugsnag/js'
 import { FastifyInstance, FastifyReply, FastifyRequest } from 'fastify'
 import fp from 'fastify-plugin'
 
-import { PluginOptions, RequestInfoWithMetadata, RequestMetadata } from './types'
+import { PluginOptions, RequestInfoWithMetadata, RequestMetadata } from './types.js'
 
 function extractRequestMetadata (request: FastifyRequest): RequestMetadata {
   return {
