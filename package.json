@@ -2,17 +2,19 @@
   "name": "fastify-bugsnag",
   "version": "3.1.0",
   "description": "Fastify plugin for Bugsnag",
-  "type": "commonjs",
-  "main": "dist/cjs/index.js",
-  "types": "dist/cjs/index.d.ts",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/cjs/index.d.ts",
   "exports": {
-    "require": "./dist/cjs/index.js",
-    "import": "./dist/esm/index.js",
-    "default": "./dist/cjs/index.js"
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
+    }
   },
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "npm run build:cjs && npm run build:esm",
+    "postbuild": "./fix-package-json.sh",
     "build:cjs": "tsc -p ./tsconfig.build.cjs.json",
     "build:esm": "tsc -p ./tsconfig.build.esm.json",
     "lint": "ts-standard --verbose | snazzy",

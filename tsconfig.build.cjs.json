@@ -1,7 +1,9 @@
 {
   "extends": "./tsconfig.build.json",
   "compilerOptions": {
-    "outDir": "dist/cjs",
+    "target": "ES2022",
+    "module": "commonjs",
+    "outDir": "dist/cjs"
   },
   "exclude": [
     "node_modules",
