@@ -9,9 +9,9 @@ function extractRequestMetadata (request: FastifyRequest): RequestMetadata {
     body: request.body,
     clientIp: request?.ips?.[0] ?? request.ip,
     headers: request.raw.headers,
-    httpMethod: request.routerMethod,
+    httpMethod: request.routeOptions.method,
     params: request.params,
-    path: request.routerPath,
+    path: request.routeOptions.url,
     query: request.query,
     referer: request.raw.headers.referer,
     url: request.url

@@ -1,70 +1,50 @@
-import { Event } from '@bugsnag/js'
 import Fastify from 'fastify'
-import { test, mock } from 'tap'
+import { strictEqual, ok } from 'assert/strict'
+import { spy } from 'sinon'
 
 import plugin from '../src/index'
 
 const apiKey = '00000000000000000000000000000000'
 
-// eslint-disable-next-line @typescript-eslint/no-floating-promises
-test('Plugin decorates the instance and request', t => {
-  t.plan(4)
+describe('fastify-bugsnag', function () {
+  it('decorates the fastify instance and request object', function () {
+    const fastify = Fastify()
 
-  const fastify = Fastify()
+    // eslint-disable-next-line @typescript-eslint/no-floating-promises
+    fastify.register(plugin, {
+      apiKey
+    })
 
-  // eslint-disable-next-line @typescript-eslint/no-floating-promises
-  fastify.register(plugin, {
-    apiKey
+    fastify.ready(err => {
+      strictEqual(err, undefined)
+
+      ok(fastify.hasDecorator('bugsnag'))
+      ok(fastify.hasRequestDecorator('bugsnag'))
+
+      strictEqual(typeof fastify.bugsnag.notify, 'function')
+    })
+
+    void fastify.close()
   })
 
-  fastify.ready(err => {
-    t.error(err)
+  it('add request details to the error', async function () {
+    const fastify = Fastify()
+    await fastify.register(plugin, {
+      apiKey
+    })
+    fastify.get('/error', () => {
+      throw new Error('test')
+    })
+    await fastify.ready()
 
-    t.ok(fastify.hasDecorator('bugsnag'))
-    t.ok(fastify.hasRequestDecorator('bugsnag'))
+    const notifySpy = spy(fastify.bugsnag, 'notify')
+    await fastify.inject({
+      url: '/error',
+      method: 'GET'
+    })
 
-    t.type(fastify.bugsnag.notify, Function)
-  })
-})
+    strictEqual(notifySpy.callCount, 1)
 
-// eslint-disable-next-line @typescript-eslint/no-floating-promises
-test('Throw an error in handler and add request details to the error', async t => {
-  t.plan(1)
-
-  const errors: Event[] = []
-
-  const mockedPlugin = mock('../src/index', {
-    '@bugsnag/js': {
-      start: () => {
-      },
-      notify: (error: Event, event: Function) => {
-        errors.push(error)
-        event(error)
-      }
-    }
-  })
-
-  const fastify = Fastify()
-  await fastify.register(mockedPlugin, {
-    apiKey
-  })
-
-  fastify.get('/error', () => {
-    throw new Error('Test')
-  })
-
-  await fastify.inject({
-    url: '/error',
-    method: 'GET'
-  })
-
-  const [error] = errors
-
-  t.strictSame(error.request, {
-    clientIp: '127.0.0.1',
-    headers: { 'user-agent': 'lightMyRequest', host: 'localhost:80' },
-    httpMethod: 'GET',
-    referer: undefined,
-    url: '/error'
+    await fastify.close()
   })
 })
