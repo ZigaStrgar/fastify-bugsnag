@@ -16,7 +16,7 @@ describe('fastify-bugsnag', function () {
     })
 
     fastify.ready(err => {
-      strictEqual(err, undefined)
+      strictEqual(err, null)
 
       ok(fastify.hasDecorator('bugsnag'))
       ok(fastify.hasRequestDecorator('bugsnag'))
