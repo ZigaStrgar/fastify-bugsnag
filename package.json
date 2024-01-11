@@ -22,7 +22,7 @@
     "prepublish": "npm run build",
     "postversion": "git push --tags && git push origin main && echo \"Successfully published new package version $npm_package_version\"",
     "preversion": "npm run lint && npm run test && npm run test:d && npm run build",
-    "test": "ts-mocha",
+    "test": "nyc ts-mocha",
     "test:d": "tsd . -f test/types"
   },
   "repository": {
@@ -65,6 +65,7 @@
     "@types/tap": "^15.0.7",
     "fastify": "^4.17.0",
     "mocha": "^10.2.0",
+    "nyc": "^15.1.0",
     "rimraf": "^5.0.1",
     "sinon": "^17.0.0",
     "snazzy": "^9.0.0",
@@ -82,6 +83,20 @@
       "src/**/*.ts",
       "test/**/*.ts"
     ]
+  },
+  "nyc": {
+    "extension": [
+      ".ts",
+      ".tsx"
+    ],
+    "exclude": [
+      "**/*.d.ts",
+      "test/**.ts"
+    ],
+    "reporter": [
+      "html"
+    ],
+    "all": true
   },
   "tsd": {
     "directory": "test/types"
