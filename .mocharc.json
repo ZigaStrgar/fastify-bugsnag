@@ -1,0 +1,7 @@
+{
+  "spec": "test/**/*.test.ts",
+  "enable-source-maps": true,
+  "slow": 1500,
+  "timeout": 5000,
+  "reporter": "tap"
+}
