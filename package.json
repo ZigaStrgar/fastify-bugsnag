@@ -22,7 +22,7 @@
     "prepublish": "npm run build",
     "postversion": "git push --tags && git push origin main && echo \"Successfully published new package version $npm_package_version\"",
     "preversion": "npm run lint && npm run test && npm run test:d && npm run build",
-    "test": "nyc ts-mocha",
+    "test": "nyc --reporter=lcov ts-mocha",
     "test:d": "tsd . -f test/types"
   },
   "repository": {
@@ -91,10 +91,10 @@
     ],
     "exclude": [
       "**/*.d.ts",
-      "test/**.ts"
+      "test/**"
     ],
     "reporter": [
-      "html"
+      "lcov"
     ],
     "all": true
   },
