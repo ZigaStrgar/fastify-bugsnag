@@ -10,7 +10,7 @@ export interface RequestMetadata {
   headers: Record<string, any>
   httpMethod: string
   params?: unknown
-  path: string
+  path?: string
   query?: unknown
   referer?: string
   url: string
