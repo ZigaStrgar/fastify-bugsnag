@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.1.3](https://github.com/ZigaStrgar/fastify-bugsnag/compare/v4.1.2...v4.1.3) (2024-09-24)
+
+
+### Bug Fixes
+
+* command ([b51490e](https://github.com/ZigaStrgar/fastify-bugsnag/commit/b51490eb635517626bef51967d0d0e5af44652f1))
+
 ## [4.1.2](https://github.com/ZigaStrgar/fastify-bugsnag/compare/v4.1.1...v4.1.2) (2024-09-24)
 
 
