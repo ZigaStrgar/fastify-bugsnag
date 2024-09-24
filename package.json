@@ -88,7 +88,9 @@
     ],
     "exclude": [
       "**/*.d.ts",
-      "test/**"
+      "test/**",
+      "tsup.config.ts",
+      "dist"
     ],
     "reporter": [
       "lcov"
