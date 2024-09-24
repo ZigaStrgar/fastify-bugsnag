@@ -1,18 +1,26 @@
 {
-  "extends": "@tsconfig/node18",
+  "extends": "@tsconfig/node18/tsconfig.json",
   "compilerOptions": {
+    "allowJs": true,
+    "moduleDetection": "force",
+    "isolatedModules": true,
+    "verbatimModuleSyntax": false,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    "module": "NodeNext",
+    "outDir": "dist",
+    "lib": ["es2022"],
     "declaration": true,
     "resolveJsonModule": true,
     "removeComments": true,
     "sourceMap": true,
     "noEmit": true,
-    "types": [
-      "node"
-    ]
+    "esModuleInterop": true
   },
   "include": [
     "src/**/*.ts",
-    "test/**/*.ts"
+    "test/**/*.ts",
+    "tsup.config.ts"
   ],
   "exclude": [
     "node_modules"
