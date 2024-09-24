@@ -1,6 +1,6 @@
-import { Client, BrowserConfig } from '@bugsnag/js'
-import { NodeConfig } from '@bugsnag/node'
-import { FastifyRequest } from 'fastify'
+import type { Client, BrowserConfig } from '@bugsnag/js'
+import type { NodeConfig } from '@bugsnag/node'
+import type { FastifyRequest } from 'fastify'
 
 export type PluginOptions = NodeConfig | BrowserConfig
 

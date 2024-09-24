@@ -2,24 +2,20 @@
   "name": "fastify-bugsnag",
   "version": "4.0.0",
   "description": "Fastify plugin for Bugsnag",
-  "main": "./dist/cjs/index.js",
-  "module": "./dist/esm/index.js",
-  "types": "./dist/cjs/index.d.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/esm/index.js",
-      "require": "./dist/cjs/index.js"
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js"
     }
   },
   "scripts": {
-    "prebuild": "rimraf dist",
-    "build": "npm run build:cjs && npm run build:esm",
-    "postbuild": "./fix-package-json.sh",
-    "build:cjs": "tsc -p ./tsconfig.build.cjs.json",
-    "build:esm": "tsc -p ./tsconfig.build.esm.json",
+    "build": "tsup-node",
     "lint": "ts-standard --verbose | snazzy",
     "lint:fix": "ts-standard --fix | snazzy",
-    "prepublish": "npm run build",
+    "prepublishOnly": "npm run build",
     "postversion": "git push --tags && git push origin main && echo \"Successfully published new package version $npm_package_version\"",
     "preversion": "npm run lint && npm run test && npm run test:d && npm run build",
     "test": "nyc --reporter=lcov ts-mocha",
@@ -50,8 +46,8 @@
   },
   "homepage": "https://github.com/ZigaStrgar/fastify-bugsnag#readme",
   "dependencies": {
-    "@bugsnag/js": "^7.20.2",
-    "@bugsnag/node": "^7.17.0",
+    "@bugsnag/js": "^8.0.0",
+    "@bugsnag/node": "^8.0.0",
     "fastify-plugin": "^4.0.0"
   },
   "engines": {
@@ -72,7 +68,8 @@
     "ts-node": "^10.8.0",
     "ts-standard": "^12.0.0",
     "tsd": "^0.30.3",
-    "typescript": "~5.1.6"
+    "tsup": "^8.3.0",
+    "typescript": "~5.6"
   },
   "ts-standard": {
     "ignore": [
@@ -80,7 +77,8 @@
     ],
     "files": [
       "src/**/*.ts",
-      "test/**/*.ts"
+      "test/**/*.ts",
+      "tsup.config.ts"
     ]
   },
   "nyc": {
@@ -90,7 +88,9 @@
     ],
     "exclude": [
       "**/*.d.ts",
-      "test/**"
+      "test/**",
+      "tsup.config.ts",
+      "dist"
     ],
     "reporter": [
       "lcov"
