@@ -18,7 +18,6 @@ jobs:
           release-type: node
 
       - uses: actions/checkout@v4
-        name: Use Node.js 18
         if: ${{ steps.release.outputs.release_created }}
 
       - uses: actions/setup-node@v4
