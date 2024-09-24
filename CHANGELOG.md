@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.1.1](https://github.com/ZigaStrgar/fastify-bugsnag/compare/v4.1.0...v4.1.1) (2024-09-24)
+
+
+### Bug Fixes
+
+* token ([6278def](https://github.com/ZigaStrgar/fastify-bugsnag/commit/6278def9d8f858fa02b90dc5236563336f03d936))
+
 ## [4.1.0](https://github.com/ZigaStrgar/fastify-bugsnag/compare/v4.1.0...v4.1.0) (2024-09-24)
 
 
