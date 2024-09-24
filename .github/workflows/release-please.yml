@@ -5,8 +5,6 @@ on:
 
 permissions:
   contents: write
-  actions: write
-  attestations: write
   pull-requests: write
 
 name: release-please
@@ -18,3 +16,28 @@ jobs:
       - uses: googleapis/release-please-action@v4
         with:
           release-type: node
+
+      - uses: actions/checkout@v4
+        name: Use Node.js 18
+        if: ${{ steps.release.outputs.release_created }}
+
+      - uses: actions/setup-node@v4
+        name: Use Node.js 18
+        if: ${{ steps.release.outputs.release_created }}
+        with:
+          node-version: 18
+          registry-url: 'https://registry.npmjs.org'
+
+      - run: npm ci
+        name: Install dependencies
+        if: ${{ steps.release.outputs.release_created }}
+
+      - run: npm run build
+        name: Build the TS
+        if: ${{ steps.release.outputs.release_created }}
+
+      - run: npm publish
+        name: Publish package
+        if: ${{ steps.release.outputs.release_created }}
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
