@@ -29,7 +29,7 @@ the request data to the error. That includes `body`, `query` and `params` which 
 |         | Version                                                            |
 |---------|--------------------------------------------------------------------|
 | Fastify | `^4.x`                                                             |
-| Bugsnag | `^7.17.0`                                                          |
+| Bugsnag | `^8.0.0`                                                           |
 | Node    | <code>^18.12.1 &#124;&#124; ^20.10.0 &#124;&#124; >= 21.0.0</code> |
 
 ## Installation
