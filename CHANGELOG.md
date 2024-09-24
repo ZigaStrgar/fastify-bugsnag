@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.1.2](https://github.com/ZigaStrgar/fastify-bugsnag/compare/v4.1.1...v4.1.2) (2024-09-24)
+
+
+### Bug Fixes
+
+* missing job id ([e4ccece](https://github.com/ZigaStrgar/fastify-bugsnag/commit/e4ccece193620a9e8f038d8ad930b6b3810574ff))
+
 ## [4.1.1](https://github.com/ZigaStrgar/fastify-bugsnag/compare/v4.1.0...v4.1.1) (2024-09-24)
 
 
