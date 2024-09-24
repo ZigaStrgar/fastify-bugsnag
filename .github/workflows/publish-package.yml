@@ -1,0 +1,25 @@
+on:
+  release:
+    types: [ published ]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        name: Use Node.js 18
+        with:
+          registry-url: 'https://registry.npmjs.org'
+          node-version: '18'
+
+      - run: npm ci
+        name: Install dependencies
+
+      - run: npm run build
+        name: Build the TS
+
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH_TOKEN}}
