@@ -37,7 +37,7 @@ function bugsnagPlugin (fastify: FastifyInstance, options: PluginOptions, done: 
   Bugsnag.start(options)
 
   fastify.decorate('bugsnag', Bugsnag)
-  fastify.decorateRequest('bugsnag', null)
+  fastify.decorateRequest('bugsnag')
 
   fastify.addHook('onRequest', function decorateRequestInstance (request: FastifyRequest, reply: FastifyReply, next) {
     request.bugsnag = Bugsnag
@@ -58,6 +58,6 @@ function bugsnagPlugin (fastify: FastifyInstance, options: PluginOptions, done: 
 }
 
 export default fp(bugsnagPlugin, {
-  fastify: '4.x',
+  fastify: '5.x',
   name: 'fastify-bugsnag'
 })

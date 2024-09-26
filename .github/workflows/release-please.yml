@@ -23,10 +23,10 @@ jobs:
         if: ${{ steps.release.outputs.release_created }}
 
       - uses: actions/setup-node@v4
-        name: Use Node.js 18
+        name: Use Node.js 20
         if: ${{ steps.release.outputs.release_created }}
         with:
-          node-version: 18
+          node-version: 20
           registry-url: 'https://registry.npmjs.org'
 
       - run: npm install --ignore-scripts
