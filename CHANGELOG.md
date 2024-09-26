@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.0.1](https://github.com/ZigaStrgar/fastify-bugsnag/compare/v5.0.0...v5.0.1) (2024-09-26)
+
+
+### Bug Fixes
+
+* add sourcemaps ([052ed15](https://github.com/ZigaStrgar/fastify-bugsnag/commit/052ed15d86448d6978543b0b1610ceac8f32abb9))
+
 ## [5.0.0](https://github.com/ZigaStrgar/fastify-bugsnag/compare/v4.1.3...v5.0.0) (2024-09-26)
 
 
