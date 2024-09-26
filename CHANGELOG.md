@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.0.0](https://github.com/ZigaStrgar/fastify-bugsnag/compare/v4.1.3...v5.0.0) (2024-09-26)
+
+
+### Features
+
+* Fastify 5 support ([#138](https://github.com/ZigaStrgar/fastify-bugsnag/issues/138)) ([9872e3f](https://github.com/ZigaStrgar/fastify-bugsnag/commit/9872e3f2f94be82d730e333c2d44ff203322ad32))
+
 ## [4.1.3](https://github.com/ZigaStrgar/fastify-bugsnag/compare/v4.1.2...v4.1.3) (2024-09-24)
 
 
