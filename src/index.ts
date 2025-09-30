@@ -9,7 +9,7 @@ function extractRequestMetadata (request: FastifyRequest): RequestMetadata {
     body: request.body,
     clientIp: request?.ips?.[0] ?? request.ip,
     headers: request.raw.headers,
-    httpMethod: request.routeOptions.method,
+    httpMethod: request.routeOptions.method.toString(),
     params: request.params,
     path: request.routeOptions.url,
     query: request.query,
@@ -34,7 +34,7 @@ function obtainRequestAndMetadataInfo (request: FastifyRequest): RequestInfoWith
 }
 
 function bugsnagPlugin (fastify: FastifyInstance, options: PluginOptions, done: (error?: Error) => void): void {
-  Bugsnag.start(options)
+  Bugsnag.start(options as any)
 
   fastify.decorate('bugsnag', Bugsnag)
   fastify.decorateRequest('bugsnag')
@@ -57,7 +57,7 @@ function bugsnagPlugin (fastify: FastifyInstance, options: PluginOptions, done: 
   done()
 }
 
-export default fp(bugsnagPlugin, {
+export default fp<PluginOptions>(bugsnagPlugin, {
   fastify: '5.x',
   name: 'fastify-bugsnag'
 })
