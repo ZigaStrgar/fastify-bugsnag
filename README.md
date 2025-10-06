@@ -4,7 +4,7 @@
 ![CI workflow](https://github.com/ZigaStrgar/fastify-bugsnag/workflows/fastify-bugsnag-ci/badge.svg)
 [![Known Vulnerabilities](https://snyk.io/test/github/ZigaStrgar/fastify-bugsnag/badge.svg)](https://snyk.io/test/github/ZigaStrgar/fastify-bugsnag)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://standardjs.com/)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/ad24873a9f9078ff0b04/test_coverage)](https://codeclimate.com/github/ZigaStrgar/fastify-bugsnag/test_coverage)
+[![Code Coverage](https://qlty.sh/gh/ZigaStrgar/projects/fastify-bugsnag/coverage.svg)](https://qlty.sh/gh/ZigaStrgar/projects/fastify-bugsnag)
 
 Easily send your application errors to [Bugsnag](https://bugsnag.com) from your [Fastify](https://www.fastify.io/)
 server.
