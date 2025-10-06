@@ -33,7 +33,7 @@ function obtainRequestAndMetadataInfo (request: FastifyRequest): RequestInfoWith
   }
 }
 
-function bugsnagPlugin (fastify: FastifyInstance, options: PluginOptions | undefined, done: (error?: Error) => void): void {
+function bugsnagPlugin (fastify: FastifyInstance, options: PluginOptions, done: (error?: Error) => void): void {
   Bugsnag.start(options)
 
   fastify.decorate('bugsnag', Bugsnag)
@@ -57,7 +57,7 @@ function bugsnagPlugin (fastify: FastifyInstance, options: PluginOptions | undef
   done()
 }
 
-export default fp<PluginOptions | undefined>(bugsnagPlugin, {
+export default fp<PluginOptions>(bugsnagPlugin, {
   fastify: '5.x',
   name: 'fastify-bugsnag',
   dependencies: ['@bugsnag/node']
