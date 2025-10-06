@@ -1,4 +1,4 @@
-import { Client } from '@bugsnag/js'
+import { Client } from '@bugsnag/node'
 import fastify from 'fastify'
 import { expectType } from 'tsd'
 
@@ -7,7 +7,7 @@ import plugin from '../../src'
 const app = fastify()
 
 // eslint-disable-next-line @typescript-eslint/no-floating-promises
-app.register(plugin).ready()
+app.register(plugin, { apiKey: 'apiKey' }).ready()
 
 expectType<Client>(app.bugsnag)
 

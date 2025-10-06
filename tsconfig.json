@@ -1,5 +1,5 @@
 {
-  "extends": "@tsconfig/node20/tsconfig.json",
+  "extends": "@tsconfig/node22/tsconfig.json",
   "compilerOptions": {
     "allowJs": true,
     "moduleDetection": "force",
@@ -15,7 +15,6 @@
     "removeComments": true,
     "sourceMap": true,
     "noEmit": true,
-    "esModuleInterop": true
   },
   "include": [
     "src/**/*.ts",

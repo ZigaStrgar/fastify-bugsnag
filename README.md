@@ -4,7 +4,7 @@
 ![CI workflow](https://github.com/ZigaStrgar/fastify-bugsnag/workflows/fastify-bugsnag-ci/badge.svg)
 [![Known Vulnerabilities](https://snyk.io/test/github/ZigaStrgar/fastify-bugsnag/badge.svg)](https://snyk.io/test/github/ZigaStrgar/fastify-bugsnag)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://standardjs.com/)
-[![Test Coverage](https://api.codeclimate.com/v1/badges/ad24873a9f9078ff0b04/test_coverage)](https://codeclimate.com/github/ZigaStrgar/fastify-bugsnag/test_coverage)
+[![Code Coverage](https://qlty.sh/gh/ZigaStrgar/projects/fastify-bugsnag/coverage.svg)](https://qlty.sh/gh/ZigaStrgar/projects/fastify-bugsnag)
 
 Easily send your application errors to [Bugsnag](https://bugsnag.com) from your [Fastify](https://www.fastify.io/)
 server.
@@ -26,11 +26,11 @@ the request data to the error. That includes `body`, `query` and `params` which 
 
 ## Compatibility
 
-|         | Version                                    |
-|---------|--------------------------------------------|
-| Fastify | `^5.x`                                     |
-| Bugsnag | `^8.0.0`                                   |
-| Node    | <code>^20.10.0 &#124;&#124; ^22.0.0</code> |
+|         | Version                                                           |
+|---------|-------------------------------------------------------------------|
+| Fastify | `^5.x`                                                            |
+| Bugsnag | `^8.0.0`                                                          |
+| Node    | <code>^20.10.0 &#124;&#124; ^22.11.0 &#124;&#124; >=24.0.0</code> |
 
 ## Installation
 
@@ -78,9 +78,9 @@ fastify.get('/error', async (request, reply) => {
 
 ## Options
 
-| Parameter | Default Value                 | Description                                                   |
-|-----------|-------------------------------|---------------------------------------------------------------|
-| `apiKey`  | `process.env.BUGSNAG_API_KEY` | API Key obtained from Bugsnag dashboard project. **REQUIRED** |
+| Parameter | Default Value                 | Description                                      |
+|-----------|-------------------------------|--------------------------------------------------|
+| `apiKey`  | `process.env.BUGSNAG_API_KEY` | API Key obtained from Bugsnag dashboard project. |
 
 For additional options check the official documentation of Bugsnag
 [here](https://docs.bugsnag.com/platforms/javascript/configuration-options/).

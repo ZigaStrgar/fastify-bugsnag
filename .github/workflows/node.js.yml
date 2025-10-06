@@ -11,29 +11,29 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [ 20.x, 22.x, latest ]
+        node-version: [ 20.x, 22.x, 24.x, latest ]
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: ${{ matrix.node-version }}
 
       - run: npm install
         name: Install dependencies
 
-      - run: npm run build
-        name: Build the TS
-
       - run: npm run lint
         name: Run Linter
+
+      - run: npm run build
+        name: Build the TS
 
       - run: npm test
         name: Run tests
 
-      - name: Publish code coverage
-        uses: paambaati/codeclimate-action@v9.0.0
-        env:
-          CC_TEST_REPORTER_ID: ${{ secrets.CODECLIMATE_COVERAGE_REPORTER }}
+      - uses: qltysh/qlty-action/coverage@v2
+        with:
+          token: ${{secrets.QLTY_COVERAGE_TOKEN}}
+          files: coverage/lcov.info
