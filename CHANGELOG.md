@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.1.0](https://github.com/ZigaStrgar/fastify-bugsnag/compare/v5.0.1...v5.1.0) (2025-10-06)
+
+
+### Features
+
+* Node 22 dev runtime, node 24 support, drop bugsnag/js ([#147](https://github.com/ZigaStrgar/fastify-bugsnag/issues/147)) ([e4cc9da](https://github.com/ZigaStrgar/fastify-bugsnag/commit/e4cc9da7591fad868c7e569e63018da6b202810b))
+
 ## [5.0.1](https://github.com/ZigaStrgar/fastify-bugsnag/compare/v5.0.0...v5.0.1) (2024-09-26)
 
 
