@@ -33,7 +33,7 @@ jobs:
       - run: npm test
         name: Run tests
 
-      - name: Publish code coverage
-        uses: paambaati/codeclimate-action@v9.0.0
-        env:
-          CC_TEST_REPORTER_ID: ${{ secrets.CODECLIMATE_COVERAGE_REPORTER }}
+      - uses: qltysh/qlty-action/coverage@v2
+        with:
+          token: {{secrets.QLTY_COVERAGE_TOKEN}}
+          files: coverage/lcov.info
