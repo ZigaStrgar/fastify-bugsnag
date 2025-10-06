@@ -78,9 +78,9 @@ fastify.get('/error', async (request, reply) => {
 
 ## Options
 
-| Parameter | Default Value                 | Description                                                   |
-|-----------|-------------------------------|---------------------------------------------------------------|
-| `apiKey`  | `process.env.BUGSNAG_API_KEY` | API Key obtained from Bugsnag dashboard project. **REQUIRED** |
+| Parameter | Default Value                 | Description                                      |
+|-----------|-------------------------------|--------------------------------------------------|
+| `apiKey`  | `process.env.BUGSNAG_API_KEY` | API Key obtained from Bugsnag dashboard project. |
 
 For additional options check the official documentation of Bugsnag
 [here](https://docs.bugsnag.com/platforms/javascript/configuration-options/).
