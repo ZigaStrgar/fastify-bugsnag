@@ -59,5 +59,5 @@ function bugsnagPlugin (fastify: FastifyInstance, options: PluginOptions, done: 
 
 export default fp<PluginOptions>(bugsnagPlugin, {
   fastify: '5.x',
-  name: 'fastify-bugsnag',
+  name: 'fastify-bugsnag'
 })
