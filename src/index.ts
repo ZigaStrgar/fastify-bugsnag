@@ -1,4 +1,4 @@
-import Bugsnag from '@bugsnag/js'
+import Bugsnag from '@bugsnag/node'
 import type { FastifyInstance, FastifyReply, FastifyRequest } from 'fastify'
 import fp from 'fastify-plugin'
 
@@ -9,7 +9,7 @@ function extractRequestMetadata (request: FastifyRequest): RequestMetadata {
     body: request.body,
     clientIp: request?.ips?.[0] ?? request.ip,
     headers: request.raw.headers,
-    httpMethod: request.routeOptions.method,
+    httpMethod: request.routeOptions.method.toString(),
     params: request.params,
     path: request.routeOptions.url,
     query: request.query,
@@ -33,7 +33,7 @@ function obtainRequestAndMetadataInfo (request: FastifyRequest): RequestInfoWith
   }
 }
 
-function bugsnagPlugin (fastify: FastifyInstance, options: PluginOptions, done: (error?: Error) => void): void {
+function bugsnagPlugin (fastify: FastifyInstance, options: PluginOptions | undefined, done: (error?: Error) => void): void {
   Bugsnag.start(options)
 
   fastify.decorate('bugsnag', Bugsnag)
@@ -57,7 +57,8 @@ function bugsnagPlugin (fastify: FastifyInstance, options: PluginOptions, done: 
   done()
 }
 
-export default fp(bugsnagPlugin, {
+export default fp<PluginOptions | undefined>(bugsnagPlugin, {
   fastify: '5.x',
-  name: 'fastify-bugsnag'
+  name: 'fastify-bugsnag',
+  dependencies: ['@bugsnag/node']
 })

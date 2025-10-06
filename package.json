@@ -46,30 +46,32 @@
   },
   "homepage": "https://github.com/ZigaStrgar/fastify-bugsnag#readme",
   "dependencies": {
-    "@bugsnag/js": "^8.0.0",
     "@bugsnag/node": "^8.0.0",
     "fastify-plugin": "^5.0.1"
   },
   "engines": {
-    "node": "^20.10.0||^22.0.0"
+    "node": "^20.10.0||^22.11.0||>=24.0.0"
   },
   "devDependencies": {
-    "@tsconfig/node20": "^20.1.4",
-    "@types/mocha": "^10.0.3",
-    "@types/node": "^20.16.9",
-    "@types/sinon": "^17.0.3",
+    "@tsconfig/node22": "^22.0.2",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^22.18.8",
+    "@types/sinon": "^17.0.4",
     "fastify": "^5.0.0",
-    "mocha": "^10.2.0",
+    "mocha": "^11.7.4",
     "nyc": "^17.1.0",
     "rimraf": "^6.0.1",
     "sinon": "^19.0.2",
     "snazzy": "^9.0.0",
-    "ts-mocha": "^10.0.0",
+    "ts-mocha": "^11.1.0",
     "ts-node": "^10.8.0",
     "ts-standard": "^12.0.0",
     "tsd": "^0.31.2",
     "tsup": "^8.3.0",
-    "typescript": "~5.6"
+    "typescript": "~5.9.3"
+  },
+  "peerDependencies": {
+    "@bugsnag/node": "^8.0.0"
   },
   "ts-standard": {
     "ignore": [
