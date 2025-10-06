@@ -1,4 +1,6 @@
 name: fastify-bugsnag-ci
+permissions:
+  contents: read
 
 on:
   push:
