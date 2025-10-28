@@ -70,9 +70,6 @@
     "tsup": "^8.3.0",
     "typescript": "~5.9.3"
   },
-  "peerDependencies": {
-    "@bugsnag/node": "^8.0.0"
-  },
   "ts-standard": {
     "ignore": [
       "dist"
