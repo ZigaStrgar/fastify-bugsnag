@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.1.2](https://github.com/ZigaStrgar/fastify-bugsnag/compare/v5.1.1...v5.1.2) (2025-10-28)
+
+
+### Bug Fixes
+
+* remove peer depepndency ([#158](https://github.com/ZigaStrgar/fastify-bugsnag/issues/158)) ([40cdf53](https://github.com/ZigaStrgar/fastify-bugsnag/commit/40cdf5343daf2b0c4828dead78407134f2237a94))
+
 ## [5.1.1](https://github.com/ZigaStrgar/fastify-bugsnag/compare/v5.1.0...v5.1.1) (2025-10-28)
 
 

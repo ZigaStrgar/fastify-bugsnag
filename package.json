@@ -1,6 +1,6 @@
 {
   "name": "fastify-bugsnag",
-  "version": "5.1.1",
+  "version": "5.1.2",
   "description": "Fastify plugin for Bugsnag",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
