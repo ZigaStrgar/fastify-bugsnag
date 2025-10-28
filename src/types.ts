@@ -1,4 +1,4 @@
-import type { NodeConfig, Client } from '@bugsnag/node'
+import type { NodeConfig } from '@bugsnag/node'
 import type { FastifyRequest } from 'fastify'
 
 export type PluginOptions = NodeConfig
@@ -18,14 +18,4 @@ export interface RequestMetadata {
 export interface RequestInfoWithMetadata {
   metadata: RequestMetadata
   request: Pick<RequestMetadata, 'clientIp' | 'headers' | 'httpMethod' | 'referer' | 'url'>
-}
-
-declare module 'fastify' {
-  interface FastifyInstance {
-    bugsnag: Client
-  }
-
-  interface FastifyRequest {
-    bugsnag: Client
-  }
 }
