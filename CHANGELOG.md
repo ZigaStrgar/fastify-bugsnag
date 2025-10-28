@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.1.1](https://github.com/ZigaStrgar/fastify-bugsnag/compare/v5.1.0...v5.1.1) (2025-10-28)
+
+
+### Bug Fixes
+
+* Instance type declaration ([#156](https://github.com/ZigaStrgar/fastify-bugsnag/issues/156)) ([38e648d](https://github.com/ZigaStrgar/fastify-bugsnag/commit/38e648dddce37c0e85eeca96dd179f9ff4cfd97e))
+
 ## [5.1.0](https://github.com/ZigaStrgar/fastify-bugsnag/compare/v5.0.1...v5.1.0) (2025-10-06)
 
 
