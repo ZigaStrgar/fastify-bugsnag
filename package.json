@@ -46,8 +46,8 @@
   },
   "homepage": "https://github.com/ZigaStrgar/fastify-bugsnag#readme",
   "dependencies": {
-    "@bugsnag/node": "^8.0.0",
-    "fastify-plugin": "^5.0.1"
+    "@bugsnag/node": "^8.8.0",
+    "fastify-plugin": "^5.1.0"
   },
   "engines": {
     "node": "^20.10.0||^22.11.0||>=24.0.0"
