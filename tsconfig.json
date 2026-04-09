@@ -7,7 +7,8 @@
     "verbatimModuleSyntax": false,
     "noUncheckedIndexedAccess": true,
     "noImplicitOverride": true,
-    "module": "NodeNext",
+    "module": "preserve",
+    "moduleResolution": "bundler",
     "outDir": "dist",
     "lib": ["es2022"],
     "declaration": true,
@@ -15,6 +16,13 @@
     "removeComments": true,
     "sourceMap": true,
     "noEmit": true,
+    "rootDir": ".",
+    "stableTypeOrdering": true,
+    "types": [
+      "mocha",
+      "node",
+      "sinon"
+    ]
   },
   "include": [
     "src/**/*.ts",
